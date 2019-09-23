@@ -1,29 +1,28 @@
 #include<iostream>
 #include<vector>
 #include<string>
-using namespace std;
 
-int main()
-{
-	vector<vector<string>> days(31);
-	vector<int> daysInMonth{ 31,28,31,30,31,30,31,31,30,31,30,31 };
+// https://www.coursera.org/learn/c-plus-plus-white/programming/gLemQ/iezhiemiesiachnyie-diela
+int main() {
+	std::vector<std::vector<std::string>> days(31);
+	std::vector<int> daysInMonth{ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 	int Q;
 	int next = 0;
 	setlocale(LC_ALL, "Russian");
-	cout << "Введите количество операций: ";
-	cin >> Q;
-	vector<vector<string>> commands(Q);
-	string command, day, deal;
+	std::cout << "Введите количество операций: ";
+	std::cin >> Q;
+	std::vector<std::vector<std::string>> commands(Q);
+	std::string command, day, deal;
 	for (int i = 0; i < Q; i++) {
-		cin >> command;
+		std::cin >> command;
 		if (command == "ADD") {
-			cin >> day >> deal;
+			std::cin >> day >> deal;
 			commands[i].push_back(command);
 			commands[i].push_back(day);
 			commands[i].push_back(deal);
 		}
 		if (command == "DUMP") {
-			cin >> day;
+			std::cin >> day;
 			commands[i].push_back(command);
 			commands[i].push_back(day);
 		}
@@ -33,7 +32,7 @@ int main()
 	}
 	for (int i = 0; i < Q; i++) {
 		if (commands[i][0] == "ADD") {
-			days[stoi(commands[i][1])-1].push_back(commands[i][2]);
+			days[stoi(commands[i][1]) - 1].push_back(commands[i][2]);
 		}
 		if (commands[i][0] == "NEXT") {
 			next++;
@@ -42,12 +41,12 @@ int main()
 			}
 			if (daysInMonth[next] > daysInMonth[next - 1]) {
 				for (int j = daysInMonth[next - 1]; j < daysInMonth[next] + 1; j++) {
-					vector<string> oneDay;
+					std::vector<std::string> oneDay;
 					days.push_back(oneDay);
 				}
 			}
 			if (daysInMonth[next] < daysInMonth[next - 1]) {
-				vector<vector<string>> days1(daysInMonth[next]);
+				std::vector<std::vector<std::string>> days1(daysInMonth[next]);
 				for (int j = 0; j < days1.size(); j++) {
 					days1[j] = days[j];
 				}
@@ -60,11 +59,11 @@ int main()
 			}
 		}
 		if (commands[i][0] == "DUMP") {
-			cout << days[stoi(commands[i][1])-1].size() << "  ";
-			for (int j = 0; j < days[stoi(commands[i][1])-1].size(); j++) {
-				cout << days[stoi(commands[i][1])-1][j] << "  ";
+			std::cout << days[stoi(commands[i][1]) - 1].size() << "  ";
+			for (int j = 0; j < days[stoi(commands[i][1]) - 1].size(); j++) {
+				std::cout << days[stoi(commands[i][1]) - 1][j] << "  ";
 			}
-			cout << endl;
+			std::cout << std::endl;
 		}
 	}
 	system("pause");
