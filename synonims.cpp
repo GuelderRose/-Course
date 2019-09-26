@@ -24,6 +24,28 @@
 Для каждого запроса в соответствующей строке выведите ответ на него:
 В ответ на запрос COUNT word выведите единственное целое число — количество синонимов слова word.
 В ответ на запрос CHECK word1 word2 выведите строку YES, если word1 и word2 являются синонимами, и NO в противном случае.
+
+Пример
+Ввод
+
+8
+ADD program code
+COUNT cipher
+ADD code cipher
+COUNT code
+COUNT program
+CHECK code program
+CHECK program cipher
+CHECK cpp java
+
+Вывод
+
+0
+2
+1
+YES
+NO
+NO
 */
 
 int main() {

@@ -34,6 +34,32 @@ DUMP i
 Формат вывода
 Для каждой операции типа DUMP в отдельной строке выведите количество дел в соответствующий день,
 а затем их названия, разделяя их пробелом. Порядок вывода дел в рамках каждой операции значения не имеет.
+
+Пример
+Ввод
+
+12
+ADD 5 Salary
+ADD 31 Walk
+ADD 30 WalkPreparations
+NEXT
+DUMP 5
+DUMP 28
+NEXT
+DUMP 31
+DUMP 30
+DUMP 28
+ADD 28 Payment
+DUMP 28
+
+Вывод
+
+1 Salary
+2 WalkPreparations Walk
+0
+0
+2 WalkPreparations Walk
+3 WalkPreparations Walk Payment
 */
 int main() {
     std::vector<std::vector<std::string>> days(31);
