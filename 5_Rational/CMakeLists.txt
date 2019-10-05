@@ -1,4 +1,3 @@
-  
 cmake_minimum_required(VERSION 3.1)
-PROJECT ( Project )
+PROJECT ( Rational )
 ADD_SUBDIRECTORY( Source )
