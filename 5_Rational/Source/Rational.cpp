@@ -2,7 +2,7 @@
 #include <sstream>
 #include <exception>
 #include <string>
-#include "Header.h"
+#include "Rational.h"
 
 inline std::ostream& operator<<(std::ostream& ostrm, const Rational& rhs) {
     return rhs.writeTo(ostrm);
