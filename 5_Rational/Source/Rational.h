@@ -8,7 +8,10 @@ class Rational {
     Rational() {}
     explicit Rational(const int numerator);
     Rational(const int numerator, const int denomirator);
-
+    Rational(const double numerator) = delete;
+    Rational(const double numerator, const double denomirator) = delete;
+    Rational(const double numerator, const int denomirator) = delete;
+    Rational(const int numerator, const double denomirator) = delete;
     bool operator==(const Rational& rhs) {
         return numerator == rhs.numerator && denominator == rhs.denominator; 
     }

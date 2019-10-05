@@ -7,7 +7,7 @@
 inline std::ostream& operator<<(std::ostream& ostrm, const Rational& rhs) {
     return rhs.writeTo(ostrm);
 }
-inline  std::istream& operator>>(std::istream& istrm, Rational& rhs) {
+inline std::istream& operator>>(std::istream& istrm, Rational& rhs) {
     return rhs.readFrom(istrm);
 }
 Rational::Rational(const int numerator)

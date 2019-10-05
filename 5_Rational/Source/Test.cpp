@@ -1,4 +1,5 @@
 #include "Rational.h"
+
 #define CATCH_CONFIG_MAIN
 #include "C:/Users/Asus/Desktop/catch.hpp" 
 
