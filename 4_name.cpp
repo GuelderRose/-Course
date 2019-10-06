@@ -1,7 +1,7 @@
 #include <iostream>
 #include <map>
-#include<vector>
-#include<string>
+#include <vector>
+#include <string>
 
 //https://www.coursera.org/learn/c-plus-plus-white/programming/4FQn4/imiena-i-familii-1
 /*
