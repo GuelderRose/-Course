@@ -166,6 +166,5 @@ int main() {
     for (int year : {1969, 1970}) {
         std::cout << person.GetFullName(year) << std::endl;
     }
-    system("pause");
     return(0);
 }
