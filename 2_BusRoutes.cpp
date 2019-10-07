@@ -1,8 +1,8 @@
-#include<iostream>
-#include<vector>
-#include<string>
-#include<map>
-#include<set>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <map>
+#include <set>
 
 //https://www.coursera.org/learn/c-plus-plus-white/programming/WRbZE/sinonimy
 /*
