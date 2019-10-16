@@ -107,6 +107,9 @@ void Rational::Reduction() {
                 k = n % d;
             }
             div = d;
+        } else {
+        numerator /= denominator;
+        denominator = 1;
         }
         numerator /= div;
         denominator /= div;
