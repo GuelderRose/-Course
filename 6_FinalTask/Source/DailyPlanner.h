@@ -36,9 +36,6 @@ public:
 private:
     std::map<Date, std::set<std::string>> DailyPlanner;
 };
-bool operator<(const Date& lhs, const Date& rhs);
-void EnsureNextSymbolAndSkip(std::stringstream& str);
-Date DateParse(const std::string& date);
 void CallAddEvent(Database& db, std::stringstream& input);
 void CallDeleteEventOrData(Database& db, std::stringstream& input);
 void CallFind(Database& db, std::stringstream& input);

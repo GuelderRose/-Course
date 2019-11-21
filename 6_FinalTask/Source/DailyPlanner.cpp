@@ -10,13 +10,13 @@
 #include"DailyPlanner.h"
 
 int Date::GetYear() const {
-    return this->year;
+    return year;
 }
 int Date::GetMonth() const {
-    return this->month;
+    return month;
 }
 int Date::GetDay() const {
-    return this->day;
+    return day;
 }
 bool operator<(const Date& lhs, const Date& rhs) {
     if (lhs.GetYear() != rhs.GetYear()) {
@@ -32,16 +32,7 @@ bool operator<(const Date& lhs, const Date& rhs) {
     }
 }
 void Database::AddEvent(const Date& date, const std::string& event) {
-    if (DailyPlanner.count(date) > 0) {
-        if (count(DailyPlanner[date].cbegin(),
-            DailyPlanner[date].cend(), event) == 0) {
-            DailyPlanner[date].insert(event);
-        }
-
-    }
-    else {
-        DailyPlanner[date].insert(event);
-    }
+    DailyPlanner[date].insert(event);
 }
 bool Database::DeleteEvent(const Date& date, const std::string& event) {
     if (DailyPlanner.count(date) > 0 &&
@@ -74,11 +65,11 @@ void Database::Print() const {
     for (const auto& group_of_events : DailyPlanner) {
         for (const auto& event : group_of_events.second) {
             std::cout << std::setfill('0')
-                << std::setw(4) << group_of_events.first.GetYear() 
+                << std::setw(4) << group_of_events.first.GetYear()
                 << "-" << std::setfill('0')
                 << std::setw(2) << group_of_events.first.GetMonth()
                 << "-" << std::setfill('0')
-                << std::setw(2) << group_of_events.first.GetDay() 
+                << std::setw(2) << group_of_events.first.GetDay()
                 << " " << event << std::endl;
         }
     }
@@ -94,7 +85,9 @@ void EnsureNextSymbolAndSkip(std::stringstream& str) {
 }
 Date DateParse(const std::string& date) {
     std::stringstream str(date);
-    int year = 0, month = 0, day = 0;
+    int year = 0,
+        month = 0,
+        day = 0;
     str >> year;
     EnsureNextSymbolAndSkip(str);
     str >> month;
@@ -115,19 +108,21 @@ Date DateParse(const std::string& date) {
     return Date(year, month, day);
 }
 void CallAddEvent(Database& db, std::stringstream& input) {
-    std::string date, event;
+    std::string date,
+        event;
     input >> date >> event;
     db.AddEvent(DateParse(date), event);
 }
 void CallDeleteEventOrData(Database& db, std::stringstream& input) {
-    std::string date, event;
+    std::string date,
+        event;
     input >> date;
     if (!input.eof()) {
         input >> event;
     }
     if (event == "") {
         int number_of_deleted_events = db.DeleteDate(DateParse(date));
-        std::cout << "Deleted " << number_of_deleted_events 
+        std::cout << "Deleted " << number_of_deleted_events
             << " events" << std::endl;
     }
     else {
