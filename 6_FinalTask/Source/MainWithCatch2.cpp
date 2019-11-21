@@ -16,6 +16,7 @@ TEST_CASE("DeleteEvent", "[classic]")
     Database db;
     db.AddEvent(date, event);
     REQUIRE(db.DeleteEvent(date,event) == true);
+    REQUIRE(db.DeleteEvent(date,event) == false);
 }
 TEST_CASE("DeleteDate", "[classic]")
 {
