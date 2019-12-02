@@ -28,4 +28,17 @@ TEST_CASE("DeleteDate", "[classic]")
     db.AddEvent(date1, event2);
     REQUIRE(db.DeleteDate(date1) == 2);
 }
-
+TEST_CASE("Find", "[classic]")
+{
+    Date date1(2019, 9, 1);
+    std::string event1 = "event1";
+    std::string event2 = "event2";
+    Database db;
+    db.AddEvent(date1, event1);
+    db.AddEvent(date1, event2);
+    std::ostringstream strm; 
+    std::cout.rdbuf(strm.rdbuf());
+    db.Find(date1);
+    std::string str = strm.str();
+    REQUIRE(str == "event1\nevent2\n");
+}
